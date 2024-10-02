@@ -441,7 +441,7 @@ var prolific = {
   trial_duration: 3000,
   choices: "NO_KEYS",
   on_finish: function(){
-  window.location.href = "https://app.prolific.com/submissions/complete?cc=C4B65VYL";
+  window.location.href = "https://app.prolific.com/submissions/complete?cc=C1M3ZJTT";
   }
 }
 var prolific_id = jsPsych.data.getURLVariable('PROLIFIC_PID');
@@ -451,9 +451,7 @@ var session_id = jsPsych.data.getURLVariable('SESSION_ID');
 //Save data ---------------------------------------------------------------------------------
 const subject_id = jsPsych.randomization.randomID(10);
 const filename = `${subject_id}.csv`;
-const experiment_id = "XXX";
-// Your OSF token
-// const osfToken = 'VLFG5mbOACd0fk6jkN1IhAwbdrCi8OSm62rzTqPBreN3asR5QCcIeTBz9YkwJy1WL9CkNp';
+const experiment_id = "TFxuaxMkpyR3";
 
 jsPsych.data.addProperties({
   subject_id: subject_id,
@@ -470,7 +468,6 @@ var save_data = {
   experiment_id: experiment_id,
   filename: filename,
   data_string: ()=>jsPsych.data.get().csv()
-  //token: osfToken
 }
 
 //timeline
