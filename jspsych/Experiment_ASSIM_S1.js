@@ -376,7 +376,7 @@ var instruction_demographic_questionnary = {
     choices: ['Continue']
 };
         
-var genre = {
+var gender = {
   type: jsPsychSurveyMultiChoice,
   questions: [
     {
@@ -481,7 +481,7 @@ timeline.push
   cmq_questionnary,
   bcti_questionnary,
   instruction_demographic_questionnary,
-  genre,
+  gender,
   age,
   comment,
   waiting_demand,
