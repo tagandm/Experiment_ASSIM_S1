@@ -20,7 +20,7 @@ var browser_check = {
              "<p>If you would like to take part in our study, please copy and paste the experiment link into one of the compatible browsers.</p>";
     }
   }
-}
+};
 
 // Create Timeline --------------------------------------------------------------------------
 var timeline = [];
@@ -84,83 +84,81 @@ var stim = [
 
 var button_randomization = jsPsych.randomization.sampleWithoutReplacement(["medicine_high", "medicine_low"], 1)[0]
 
+var label_randomization = jsPsych.randomization.sampleWithoutReplacement(["medicine_left", "medicine_right"], 1)[0]
+
 var pro_medicine = stim.filter(function(s){return s.pro === "medicine"; });
 var pro_placebo = stim.filter(function(s){return s.pro === "placebo"; });
 
 var pro_medicine_randomization = jsPsych.randomization.repeat(pro_medicine, 4);
 var pro_placebo_randomization = jsPsych.randomization.repeat(pro_placebo, 4);
 
-
-
 var order_randomization = jsPsych.randomization.sampleWithoutReplacement(["pro_medicine_first", "pro_placebo_first"], 1)[0]
 var stim_randomization = [];
 
-  if (order_randomization == "pro_medicine_first"){
-    stim_randomization.push(
-      pro_medicine_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_placebo_randomization.pop(),
+if (order_randomization == "pro_medicine_first"){
+  stim_randomization.push(
+    pro_medicine_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_placebo_randomization.pop(),
 
-      pro_medicine_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_medicine_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_medicine_randomization.pop(),
 
-      pro_medicine_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_medicine_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_medicine_randomization.pop(),
 
-      pro_placebo_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_medicine_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_medicine_randomization.pop(),
 
-      pro_placebo_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_placebo_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_placebo_randomization.pop(),
 
-      pro_placebo_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_placebo_randomization.pop());
+    pro_placebo_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_placebo_randomization.pop());
 
-  } else if (order_randomization == "pro_placebo_first"){
-    stim_randomization.push(
-      pro_placebo_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_medicine_randomization.pop(),
+} else if (order_randomization == "pro_placebo_first"){
+  stim_randomization.push(
+    pro_placebo_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_medicine_randomization.pop(),
 
-      pro_placebo_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_placebo_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_placebo_randomization.pop(),
 
-      pro_placebo_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_placebo_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_placebo_randomization.pop(),
 
-      pro_medicine_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_placebo_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_placebo_randomization.pop(),
 
-      pro_medicine_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_medicine_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_medicine_randomization.pop(),
 
-      pro_medicine_randomization.pop(),
-      pro_placebo_randomization.pop(),
-      pro_medicine_randomization.pop(),
-      pro_medicine_randomization.pop());
-  }
-
-console.log(stim_randomization);
+    pro_medicine_randomization.pop(),
+    pro_placebo_randomization.pop(),
+    pro_medicine_randomization.pop(),
+    pro_medicine_randomization.pop());
+};
 
 var pilule_given = {
   type : jsPsychImageButtonResponse,
@@ -173,7 +171,7 @@ var pilule_given = {
   prompt: function() {
   return `<p class='instructions'>You give the ${jsPsych.timelineVariable('pilule')} to the patient.</p>`
   }
-}
+};
 
 var loop_pilule = {
   timeline: [pilule_given],
@@ -186,7 +184,7 @@ var loop_pilule = {
       return true;
     }
   }
-}
+};
 
 var feedback = {
   type: jsPsychHtmlButtonResponse,
@@ -196,7 +194,7 @@ var feedback = {
     <p class='instructions'>The patient has ${jsPsych.timelineVariable('diagnostic')}!</p>`;
   },
   choices: ['Continue'],
-}
+};
 
 var procedure_testing = {
   timeline: [loop_pilule, feedback],
@@ -207,7 +205,7 @@ var procedure_testing = {
     med_score: jsPsych.timelineVariable('med_score'),
     pla_score: jsPsych.timelineVariable('pla_score')
   },
-}
+};
 
 var question = {
   type: jsPsychSurveyMultiChoice,
@@ -233,7 +231,7 @@ var question = {
     required: true // This makes the question required
   }
 ]
-}
+};
 
 var slider = {
   type: jsPsychHtmlSliderResponse,
@@ -290,7 +288,7 @@ var attention_check = {
     }
   ],
   button_label: 'Continue',
-}
+};
 
 //Survey
 var instruction_questionnary = {
@@ -330,7 +328,7 @@ var cmq_questionnary = {
   ],
   required_error: "Please, answer all questions.",
   button_label: 'Continue'
-}
+};
 
 var bcti_label = [
   "<br>1<br><br>Completely false",
@@ -369,7 +367,7 @@ var bcti_questionnary = {
   ],
   required_error: "Please, answer all questions.",
   button_label: 'Continue'
-}
+};
 
 var instruction_demographic_questionnary = {
   type: jsPsychHtmlButtonResponse,
@@ -391,7 +389,7 @@ var genre = {
   ],
   required_error: "Please, answer all questions.",
   button_label: 'Continue'
-}
+};
           
 var age = {
   type: jsPsychSurveyText,
@@ -405,7 +403,7 @@ var age = {
   ],
   required_error: "Please, answer all questions.",
   button_label: 'Continue'
-}
+};
 
 var comment = {
   type: jsPsychSurveyText,
@@ -418,7 +416,7 @@ var comment = {
   ],
   required_error: "Please, answer all questions.",
   button_label: 'Continue'
-}
+};
 
 var waiting_demand = {
   type: jsPsychHtmlButtonResponse,
@@ -428,8 +426,7 @@ var waiting_demand = {
   "<strong>Please wait until the next page appears to exit.</strong> " +
   "Otherwise, we will have no proof that you have completed the study and won't be able to pay you.</p>",
   choices: ['Continue']
-}
-  
+};
 
 //prolific ----------------------------------------------------------------------------------
 var prolific = {
@@ -441,7 +438,8 @@ var prolific = {
   on_finish: function(){
   window.location.href = "https://app.prolific.com/submissions/complete?cc=C1M3ZJTT";
   }
-}
+};
+
 var prolific_id = jsPsych.data.getURLVariable('PROLIFIC_PID');
 var study_id = jsPsych.data.getURLVariable('STUDY_ID');
 var session_id = jsPsych.data.getURLVariable('SESSION_ID');
@@ -456,8 +454,9 @@ jsPsych.data.addProperties({
   prolific_id: prolific_id,
   study_id: study_id,
   session_id: session_id,
-  order_randomization: stim_randomization,
-  button_randomization: button_randomization
+  button_randomization: button_randomization,
+  order_randomization: order_randomization,
+  stim_randomization: stim_randomization
 })
 
 var save_data = {
