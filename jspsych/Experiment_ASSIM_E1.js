@@ -84,8 +84,6 @@ var stim = [
 
 var button_randomization = jsPsych.randomization.sampleWithoutReplacement(["medicine_high", "medicine_low"], 1)[0]
 
-var label_randomization = jsPsych.randomization.sampleWithoutReplacement(["medicine_left", "medicine_right"], 1)[0]
-
 var pro_medicine = stim.filter(function(s){return s.pro === "medicine"; });
 var pro_placebo = stim.filter(function(s){return s.pro === "placebo"; });
 
@@ -428,7 +426,7 @@ var waiting_demand = {
   "<p class='instructions'>You have now finished answering all the questions. " +
   "After clicking <strong>continue</strong>, the data will be saved while loading. " +
   "<strong>Please wait until the next page appears to exit.</strong> " +
-  "Otherwise, we will have no proof that you have completed the study and won't be able to pay you</p>",
+  "Otherwise, we will have no proof that you have completed the study and won't be able to pay you.</p>",
   choices: ['Continue']
 }
   
@@ -458,7 +456,7 @@ jsPsych.data.addProperties({
   prolific_id: prolific_id,
   study_id: study_id,
   session_id: session_id,
-  stim_randomization: stim_randomization,
+  order_randomization: stim_randomization,
   button_randomization: button_randomization
 })
 
@@ -478,7 +476,7 @@ timeline.push
   consigne,
   procedure_testing,
   question,
-  slider,
+  conditional_slider,
   attention_check,
   instruction_questionnary,
   cmq_questionnary,
