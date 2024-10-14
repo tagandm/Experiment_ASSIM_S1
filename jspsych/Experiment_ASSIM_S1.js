@@ -66,10 +66,10 @@ var consigne = {
   stimulus:
   "<p class= 'instructions_questionnary bold'>Please read these instructions very carefully.</p>" +
   "<p class= 'instructions_questionnary'>Imagine you are a medical researcher looking for a cure for a (fictional) disease called the Vonne syndrome. " + 
-  "You just found a medicine that you think could work and your role will be to determine whether this medicine is effective or not. " +
+  "You just found a medicine that you believe could work and your role is to determine whether this medicine is effective or not. " +
   "<p class= 'instructions_questionnary'>To do so, you will see patients suffering from the disease one by one, and depending on the instructions, you will have to give them either the medicine or a placebo, " +
-  "that is to say a pill that resembles the medicine but does not contain any substance affecting health (it is generally with this type of pill that a medicine is compared to in order to judge its effectiveness).</p>" + //retour à la ligne
-  "<p class= 'instructions_questionnary'>You will test a certain number of patients to determine the effectiveness of medicine.</p>",
+  "which is a pill that resembles the medicine but does not contain any active substance affecting health (this type of pill is generally used to compare a medicine in order to assess its effectiveness).</p>" + //retour à la ligne
+  "<p class= 'instructions_questionnary'>You will test a certain number of patients to determine the effectiveness of the medicine.</p>",
   choices: ['I have read carefully and I can start the study']
 };
 
